@@ -20,5 +20,3 @@ done
 
 sleep 0.2
 printf "\e[1;${colors[color_index]}mdu coup !!\e[0m\n"
-
-printf "\e[0m"
