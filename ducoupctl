@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+echo -n "Du coup, "
+for i in $(seq 1 30)
+do
+	sleep 0.2
+	echo -n "du coup, "
+done
+sleep 0.2
+echo 'du coup !!'
