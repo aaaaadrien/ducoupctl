@@ -1,10 +1,22 @@
 #! /usr/bin/env bash
 
-echo -n "Du coup, "
-for i in $(seq 1 30)
-do
+colors=(31 33 32 36 34 35)
+
+repeat_count=${1:-30}
+if ! [[ $repeat_count =~ ^[0-9]+$ ]]; then
+	echo "Error: Argument must be a number"
+	exit 1
+fi
+
+printf "\e[1;${colors[0]}mDu coup, "
+
+color_index=1
+
+for ((i = 1; i <= repeat_count; i++)); do
 	sleep 0.2
-	echo -n "du coup, "
+	printf "\e[1;${colors[color_index]}mdu coup, "
+	color_index=$(((color_index + 1) % 6))
 done
+
 sleep 0.2
-echo 'du coup !!'
+printf "\e[1;${colors[color_index]}mdu coup !!\e[0m\n"
